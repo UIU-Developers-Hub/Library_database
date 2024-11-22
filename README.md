@@ -32,3 +32,4 @@ member_id (Foreign Key referencing members(member_id) ON DELETE CASCADE)
 book_id (Foreign Key referencing books(book_id) ON DELETE CASCADE)
 
 issue_date
+For any inquiries, please contact sajidahamedkhulna2000@gmail.com
