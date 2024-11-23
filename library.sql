@@ -581,3 +581,27 @@ SELECT
         ELSE 'Expensive'
     END as price_categorization
 FROM books;
+
+-- Creating a new table for affordable price
+CREATE Table affordable_books as
+
+SELECT * FROM books where price < 600;
+-- using exist method to check related records
+SELECT *
+FROM members
+WHERE
+    EXISTS (
+        SELECT 1
+        FROM book_issues
+        WHERE
+            book_issues.member_id = members.member_id
+    );
+-- using subqueires to select operation
+SELECT book_id, title, (
+        SELECT COUNT(*)
+        FROM book_issues
+        WHERE
+            book_issues.book_id = books.book_id
+    ) AS issue_count
+FROM books;
+
